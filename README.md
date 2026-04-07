@@ -38,25 +38,6 @@ Upon receiving the IPC trigger, the Application Core extracts the stored packets
 
 Because standard BLE advertising only supports 31 bytes, the Network Core uses **BLE Extended Advertising** to broadcast the massive 256-byte payloads over the air. It transmits each packet 3 times rapidly to guarantee the mobile phone intercepts it.
 
----
-
-## Directory Structure
-
-```text
-AWS_DataLogger/
-├── Application_Core/      # Zephyr project for nrf5340dk_nrf5340_cpuapp
-│   ├── src/main.c         # Data generation and IPC control logic
-│   ├── prj.conf           # App Core configurations (GPIO, IPC, CPUNET init)
-│   └── CMakeLists.txt
-├── network_Core/          # Zephyr project for nrf5340dk_nrf5340_cpunet
-│   ├── src/main.c         # Zephyr BLE Controller, Scanner, and Broadcaster
-│   ├── prj.conf           # Net Core configurations (BLE, Extended Adv, RTT)
-│   └── CMakeLists.txt
-└── common/
-    └── ipc_msg.h          # Shared header for defining IPC message structures
-```
-
----
 
 ## Build & Flash Instructions
 
